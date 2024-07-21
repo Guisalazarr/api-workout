@@ -20,21 +20,22 @@ export class Exercise {
     public get name() {
         return this._name;
     }
+
+    public get weight() {
+        return this._weight;
+    }
  
     public get workout() {
         return this._workout;
     }
 
-    public get periodization() {
-        return this._weight;
-    }
 
     public toJson() {
         return {
             id: this._id,
             name: this._name,
-            workout: this._workout,
             weight: this._weight,
+            workout: this._workout,     
         };
     }
 

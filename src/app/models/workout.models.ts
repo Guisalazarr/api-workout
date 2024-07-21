@@ -24,6 +24,10 @@ export class Workout {
         return this._name;
     }
 
+    public get user() {
+        return this._user;
+    }
+
     public get repetitions() {
         return this._repetitions;
     }
@@ -36,9 +40,7 @@ export class Workout {
         return this._weeks;
     }
  
-    public get user() {
-        return this._user;
-    }
+
     public get cardio() {
         return this._cardio;
     }
@@ -54,9 +56,9 @@ export class Workout {
             repetitions: this._repetitions,
             series: this._series,
             weeks: this._weeks,
-            user: this._user,
             cardio: this._cardio,
-            descrioption: this._descrioption
+            descrioption: this._descrioption,
+            user: this._user
         };
     }
 
