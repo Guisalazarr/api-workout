@@ -1,5 +1,6 @@
 import { v4 as createId } from 'uuid';
 import { User } from './user.models';
+import { WorkoutEntity } from '../shared/database/entities/workout.entity';
 export class Workout {
     private _id: string;
 
@@ -39,13 +40,12 @@ export class Workout {
     public get weeks() {
         return this._weeks;
     }
- 
 
     public get cardio() {
         return this._cardio;
     }
 
-    public get periodization() {
+    public get descrioption() {
         return this._descrioption;
     }
 
@@ -60,6 +60,13 @@ export class Workout {
             descrioption: this._descrioption,
             user: this._user
         };
+    }
+
+    public static create(row: WorkoutEntity, user: User) {
+        const workout = new Workout(row.name, user, row.repetitions, row.series, row.weeks, row.cardio, row.description);
+        workout._id = row.id;
+
+        return workout;
     }
 
 }
