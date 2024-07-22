@@ -12,6 +12,22 @@ export class WorkoutRepository {
         return result.map((entity) => WorkoutRepository.mapRowToModel(entity));
     }
 
+    public async create (workout: Workout){
+        const workoutEntity = this.repository.create({
+            id: workout.id,
+            name: workout.name,
+            repetitions: workout.repetitions,
+            series: workout.series,
+            weeks: workout.weeks,
+            cardio: workout.cardio,
+            description: workout.description,
+            idUser: workout.user.id
+
+        })
+
+        await this.repository.save(workoutEntity)
+    }
+
 
     public static mapRowToModel(row: WorkoutEntity): Workout {
         const user = UserRepository.mapRowToModel(row.user);

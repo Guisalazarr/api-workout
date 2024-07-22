@@ -11,7 +11,7 @@ export class Workout {
         private _series?: number,
         private _weeks?: number,
         private _cardio?: string,
-        private _descrioption?: string,
+        private _description?: string,
 
     ) {
         this._id = createId();
@@ -45,8 +45,8 @@ export class Workout {
         return this._cardio;
     }
 
-    public get descrioption() {
-        return this._descrioption;
+    public get description() {
+        return this._description;
     }
 
     public toJson() {
@@ -57,8 +57,8 @@ export class Workout {
             series: this._series,
             weeks: this._weeks,
             cardio: this._cardio,
-            descrioption: this._descrioption,
-            user: this._user
+            description: this._description,
+            user: this._user.toJson()
         };
     }
 
