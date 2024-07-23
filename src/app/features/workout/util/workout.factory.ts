@@ -1,9 +1,11 @@
 import { UserRepository } from "../../user/repositories/user.repository";
 import { CreateWorkoutController } from "../controllers/create-workout.controller";
+import { DeleteWorkoutController } from "../controllers/delete-workout.controller";
 import { GetWorkoutController } from "../controllers/get-workout.controller";
 import { ListWorkoutController } from "../controllers/list-workout.controller";
 import { WorkoutRepository } from "../repositories/workout.repository";
 import { CreateWorkoutUsecase } from "../usecases/create-workout.usecase";
+import { DeleteWorkoutUsecase } from "../usecases/delete-workout.usecase";
 import { GetWorkoutUsecase } from "../usecases/get-workout.usecase";
 import { ListWorkoutUseCase } from "../usecases/list-workouts.usecase";
 
@@ -40,5 +42,13 @@ export class WorkoutContoller {
             this.workoutRepository
         )
         return new CreateWorkoutController(createUsecase)
+    }
+
+    public get deleteWorkout(){
+        const deleteUsecase = new DeleteWorkoutUsecase(
+            this.userRepository,
+            this.workoutRepository
+        )
+        return new DeleteWorkoutController(deleteUsecase)
     }
 }

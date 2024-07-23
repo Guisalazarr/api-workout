@@ -36,6 +36,13 @@ export class WorkoutRepository {
         await this.repository.save(workoutEntity)
     }
 
+    public async delete (workoutId: string){
+      const result = await this.repository.delete(workoutId);
+
+      return result.affected ?? 0
+        
+    }
+
     private mapRowToModel(row: WorkoutEntity): Workout {
         const user = UserRepository.mapRowToModel(row.user);
         return Workout.create(row,user);

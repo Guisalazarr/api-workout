@@ -19,6 +19,6 @@ export class ListWorkoutUseCase{
 
         const result = workouts.map((workout)=> workout.toJson())
 
-        return Return.success('Workouts successfuly listed', result)
+        return Return.success('Workouts successfuly deleted', result)
     }
 }
