@@ -12,6 +12,10 @@ export const workoutRoutes = () => {
     app.get('/', (req: Request, res: Response) => 
         controller.listWorkout.list(req, res)
     )
+
+    app.get('/:workoutId', (req: Request, res: Response) => 
+        controller.getWorkout.get(req, res)
+    )
     app.post('/', (req: Request, res: Response) => 
         controller.createWorkout.create(req, res)
     )
