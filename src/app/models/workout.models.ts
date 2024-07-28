@@ -49,6 +49,30 @@ export class Workout {
         return this._description;
     }
 
+    public set name(name: string){
+        this._name = name
+    }
+
+    public set repetitions(repetitions: number | undefined){
+        this._repetitions = repetitions
+    }
+
+    public set series(series: number | undefined){
+        this._series = series
+    }
+
+    public set weeks(weeks: number | undefined){
+        this._weeks = weeks
+    }
+
+    public set cardio(cardio: string | undefined){
+        this._cardio = cardio
+    }
+
+    public set description(description: string | undefined){
+        this._description = description
+    }
+
     public toJson() {
         return {
             id: this._id,

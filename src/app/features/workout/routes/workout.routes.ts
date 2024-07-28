@@ -20,6 +20,10 @@ export const workoutRoutes = () => {
         controller.createWorkout.create(req, res)
     )
 
+    app.put('/:workoutId', (req: Request, res: Response) => 
+        controller.updateWorkout.update(req, res)
+    )
+
     app.delete('/:workoutId', (req: Request, res: Response) => 
         controller.deleteWorkout.delete(req, res)
     )

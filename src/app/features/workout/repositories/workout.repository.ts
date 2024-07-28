@@ -43,6 +43,20 @@ export class WorkoutRepository {
         
     }
 
+    public async update(workout:Workout) {
+        await this.repository.update({
+            id: workout.id
+        },{
+            name: workout.name,
+            repetitions: workout.repetitions,
+            series: workout.series,
+            weeks: workout.weeks,
+            cardio: workout.cardio,
+            description: workout.description
+        })
+        
+    }
+
     private mapRowToModel(row: WorkoutEntity): Workout {
         const user = UserRepository.mapRowToModel(row.user);
         return Workout.create(row,user);
