@@ -1,5 +1,6 @@
 import { Request, Response, Router } from 'express';
 import { WorkoutContoller } from "../util/workout.factory"
+import { exerciseRoutes } from '../../exercise/routes/exercise.routes';
 
 
 export const workoutRoutes = () => {
@@ -28,5 +29,6 @@ export const workoutRoutes = () => {
         controller.deleteWorkout.delete(req, res)
     )
 
+    app.use("/:workoutId/exercise", exerciseRoutes());
     return app
 }

@@ -33,8 +33,7 @@ export class Exercise {
         return {
             id: this._id,
             name: this._name,
-            weight: this._weight,
-            workout: this._workout,     
+            weight: this._weight
         };
     }
 

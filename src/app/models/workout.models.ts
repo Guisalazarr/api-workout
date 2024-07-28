@@ -81,8 +81,7 @@ export class Workout {
             series: this._series,
             weeks: this._weeks,
             cardio: this._cardio,
-            description: this._description,
-            user: this._user.toJson()
+            description: this._description
         };
     }
 
