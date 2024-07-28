@@ -13,5 +13,9 @@ export const exerciseRoutes = () => {
             controller.listExercise.list(req, res)
     )
 
+    app.get('/:exerciseId', (req: Request, res: Response) => 
+        controller.getExercise.get(req, res)
+)
+
     return app
 }

@@ -12,6 +12,16 @@ export class ExerciseRepository{
         return result.map((entity) => this.mapRowToModel(entity))
     }
 
+    public async get(exerciseId: string){
+        const result = await this.repository.findOneBy({
+            id: exerciseId
+        })
+
+        if(!result) return undefined
+
+        return this.mapRowToModel(result)
+    }
+
     private mapRowToModel(row: ExerciseEntity): Exercise {
         const workout = WorkoutRepository.mapRowToModel(row.workout);
         return Exercise.create(row,workout);
