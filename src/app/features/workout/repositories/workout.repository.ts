@@ -9,7 +9,7 @@ export class WorkoutRepository {
     public async list() {
         const result = await this.repository.find();
 
-        return result.map((entity) =>this.mapRowToModel(entity));
+        return result.map((entity) =>WorkoutRepository.mapRowToModel(entity));
     }
 
     public async get (workoutId: string){
@@ -17,7 +17,7 @@ export class WorkoutRepository {
     
         if(!result) return undefined
 
-        return this.mapRowToModel(result);
+        return WorkoutRepository.mapRowToModel(result);
     }
 
     public async create (workout: Workout){
@@ -57,7 +57,7 @@ export class WorkoutRepository {
         
     }
 
-    private mapRowToModel(row: WorkoutEntity): Workout {
+    public static mapRowToModel(row: WorkoutEntity): Workout {
         const user = UserRepository.mapRowToModel(row.user);
         return Workout.create(row,user);
     }

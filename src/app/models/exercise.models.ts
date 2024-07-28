@@ -1,5 +1,6 @@
 import { v4 as createId } from 'uuid';
 import { Workout } from './workout.models';
+import { ExerciseEntity } from '../shared/database/entities/exercise.entity';
 export class Exercise {
     private _id: string;
     private _weight: number
@@ -28,8 +29,6 @@ export class Exercise {
     public get workout() {
         return this._workout;
     }
-
-
     public toJson() {
         return {
             id: this._id,
@@ -37,6 +36,13 @@ export class Exercise {
             weight: this._weight,
             workout: this._workout,     
         };
+    }
+
+    public static create(row: ExerciseEntity, workout: Workout) {
+        const exercise = new Exercise(row.name, workout);
+        exercise._id = row.id;
+
+        return exercise;
     }
 
 }
