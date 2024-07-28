@@ -1,4 +1,3 @@
-import { Workout } from "../../../models/workout.models";
 import { Return } from "../../../shared/util/return.adpter";
 import { UserRepository } from "../../user/repositories/user.repository";
 import { WorkoutRepository } from "../repositories/workout.repository";
